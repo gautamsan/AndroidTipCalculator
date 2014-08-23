@@ -1,0 +1,599 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/linearLayout6"
+        android:weightSum="1"
+        android:layout_marginTop="-10dp">
+
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup2"
+            android:orientation="horizontal"
+            android:layout_below="@+id/textView3"
+            android:layout_alignLeft="@+id/buttonClear"
+            android:weightSum="1">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:text="Before Tax"
+                android:id="@+id/radioButtonBeforeTax"
+                android:onClick="onRadioButtonClicked"
+
+                android:checked="true"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|right"
+                android:text="After Tax"
+                android:id="@+id/radioButtonAfterTax"
+                android:onClick="onRadioButtonClicked"
+
+                android:checked="false"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Rounding"
+                android:id="@+id/textView"
+                android:gravity="center"
+                android:layout_marginLeft="6dp"
+                android:textSize="13sp" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup3"
+            android:layout_alignParentLeft="true"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="211dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/linearLayout6"
+                android:layout_alignParentLeft="true"
+                android:weightSum="1">
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:id="@+id/radioGroup"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/radioGroup2"
+                    android:layout_alignLeft="@+id/radioGroup2">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tax Percent"
+                        android:id="@+id/radioButtonTaxPC"
+                        android:onClick="onRadioButtonClicked"
+                        android:checked="false"
+                        android:layout_gravity="center|left"
+                        android:layout_above="@+id/editTextBill"
+                        android:layout_toRightOf="@+id/button3"
+                        android:textSize="13sp" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tax Amount"
+                        android:id="@+id/radioButtonTaxAmt"
+                        android:onClick="onRadioButtonClicked"
+                        android:checked="false"
+                        android:layout_above="@+id/radioButtonTaxPC"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="1dp"
+                        android:textSize="13sp" />
+
+
+                </RadioGroup>
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/linearLayout6"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="left|center_vertical"
+                    android:weightSum="1">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/editTextTaxPC"
+                        android:text="10"
+                        android:layout_below="@+id/radioGroup2"
+                        android:layout_alignLeft="@+id/editTextTaxAmt"
+                        android:layout_alignRight="@+id/editTextTaxAmt"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center_horizontal" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/editTextTaxAmt"
+                        android:text="23.44"
+                        android:layout_alignBottom="@+id/radioGroup"
+                        android:layout_toRightOf="@+id/button1"
+                        android:layout_alignRight="@+id/button3"
+                        android:layout_gravity="center"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="5dp" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editTextDummy"
+                    android:layout_above="@+id/editTextTaxAmt"
+                    android:layout_alignRight="@+id/radioGroup2"
+                    android:visibility="visible"
+                    android:alpha="0"/>
+            </LinearLayout>
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioGroup3"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="-11dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="None"
+                    android:id="@+id/radioButtonNone"
+                    android:checked="true"
+                    android:textSize="11sp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Down"
+                    android:id="@+id/radioButtonDown"
+                    android:checked="false"
+                    android:textSize="11sp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Up"
+                    android:id="@+id/radioButtonUp"
+                    android:checked="false"
+                    android:textSize="11sp" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1"
+            android:id="@+id/linearLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount Without Tax"
+                android:textSize="11sp"
+                android:id="@+id/textViewInstruct"
+                android:layout_below="@+id/editTextTaxAmt"
+                android:layout_alignRight="@+id/editTextDummy"
+                android:layout_marginRight="33dp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="# of Splits          Tip %"
+                android:id="@+id/textView4"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@+id/linearLayout6"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center|left"
+            android:weightSum="1"
+            android:layout_weight="0.07"
+            android:layout_marginTop="-4dp">
+
+            <EditText
+                android:layout_width="102dp"
+                android:layout_height="30dp"
+                android:text="1259.67"
+                android:textSize="15sp"
+                android:gravity="bottom"
+                android:id="@+id/editTextBill"
+                android:layout_below="@+id/textViewIns"
+                android:layout_alignRight="@+id/editTextDummy"
+                android:inputType="numberDecimal"
+                android:layout_weight="0.51"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:layout_width="72dp"
+                android:layout_height="30dp"
+                android:textSize="15sp"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editTextSplits"
+                android:text="3"
+                android:layout_weight="0.06" />
+
+            <EditText
+                android:layout_width="82dp"
+                android:layout_height="30dp"
+                android:textSize="15sp"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editTextTipPc"
+                android:layout_weight="0.47" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/linearLayout6"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/llSplits"
+            android:weightSum="1"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text=" Each one pays ($)"
+                android:id="@+id/textViewEachOne"
+                android:layout_alignBaseline="@+id/textViewTotal"
+                android:layout_alignBottom="@+id/textViewTotal"
+                android:layout_alignLeft="@+id/editTextBill"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textSize="20sp"
+
+                android:text="1133.55"
+                android:id="@+id/textViewEachPay"
+                android:layout_above="@+id/button1"
+                android:layout_alignLeft="@+id/editTextBill"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/linearLayout4"
+            android:layout_toLeftOf="@+id/editTextDummy"
+            android:id="@+id/linearLayout5"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.01"
+            android:visibility="visible">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/linearLayout6"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/llTotal"
+            android:weightSum="1"
+            android:visibility="gone"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:text="Total Bill ($)"
+                android:id="@+id/textViewTotal"
+                android:layout_above="@+id/textViewEachPay"
+                android:layout_alignLeft="@+id/textViewEachOne"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="112334.44"
+                android:id="@+id/textViewTotalBill"
+                android:layout_alignTop="@+id/textViewEachPay"
+                android:layout_alignRight="@+id/textViewIns"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.43"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/llKeypad"
+            android:layout_below="@+id/editTextBill"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:visibility="visible"
+            android:layout_weight="0.12"
+            android:layout_marginTop="-3dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextBill"
+                android:layout_alignRight="@+id/editTextTaxAmt"
+                android:id="@+id/linearLayout11"
+                android:weightSum="1">
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="1"
+                    android:id="@+id/button1"
+                    android:layout_above="@+id/button4"
+                    android:layout_toLeftOf="@+id/button2" />
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="2"
+                    android:id="@+id/button2"
+                    android:layout_above="@+id/button5"
+                    android:layout_centerHorizontal="true" />
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="3"
+                    android:id="@+id/button3"
+                    android:layout_alignTop="@+id/button2"
+                    android:layout_toRightOf="@+id/button2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextBill"
+                android:layout_toRightOf="@+id/linearLayout11"
+                android:id="@+id/linearLayout12"
+                android:weightSum="1">
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="4"
+                    android:id="@+id/button4"
+                    android:layout_above="@+id/button7"
+                    android:layout_alignLeft="@+id/button1" />
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="5"
+                    android:id="@+id/button5"
+                    android:layout_alignTop="@+id/button4"
+                    android:layout_toRightOf="@+id/button4" />
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="6"
+                    android:id="@+id/button6"
+                    android:layout_alignTop="@+id/button5"
+                    android:layout_toRightOf="@+id/button5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout12"
+                android:layout_toLeftOf="@+id/textViewTotalBill"
+                android:weightSum="1">
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="7"
+                    android:id="@+id/button7"
+                    android:layout_above="@+id/button0"
+                    android:layout_alignLeft="@+id/button4" />
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="8"
+                    android:id="@+id/button8"
+                    android:layout_alignTop="@+id/button7"
+                    android:layout_toRightOf="@+id/button7" />
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="9"
+                    android:id="@+id/button9"
+                    android:layout_toRightOf="@+id/button8" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout13"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/textView3"
+                android:weightSum="1">
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="0"
+                    android:id="@+id/button0"
+                    android:layout_above="@+id/buttonCalc"
+                    android:layout_alignLeft="@+id/button7" />
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text="."
+                    android:id="@+id/buttonDot"
+                    android:layout_alignTop="@+id/button0"
+                    android:layout_toRightOf="@+id/button0" />
+
+                <Button
+                    style="@style/ButtonText"
+                    android:background="@drawable/btn_black"
+                    android:layout_width="55dp"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    android:text=">"
+                    android:id="@+id/buttonStar"
+                    android:layout_alignTop="@+id/buttonDot"
+                    android:layout_toRightOf="@+id/buttonDot" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:visibility="visible"
+            android:id="@+id/llButtons"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:background="@drawable/btn_black" style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:textSize="11sp"
+                android:layout_height="18dp"
+                android:text="Clear"
+                android:id="@+id/buttonClear"
+                android:layout_below="@+id/button0"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_horizontal|left" />
+
+            <Button
+                android:background="@drawable/btn_black" style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:textSize="14sp"
+                android:text="Calculate"
+                android:id="@+id/buttonCalc"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/buttonClear"
+                android:layout_toLeftOf="@+id/buttonBkSpc"
+                android:layout_gravity="center_horizontal|top"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" />
+
+            <Button
+                android:background="@drawable/btn_black" style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:textSize="11sp"
+                android:layout_height="18dp"
+                android:text="Bk Spc"
+                android:id="@+id/buttonBkSpc"
+                android:layout_below="@+id/buttonStar"
+                android:layout_alignRight="@+id/textViewTotalBill"
+                android:layout_gravity="center_horizontal|left" />
+        </LinearLayout>
+
+        <Button
+            style="@style/ButtonText"
+            android:background="@drawable/btn_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Recalculate"
+            android:id="@+id/btnRecalc"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/buttonClear"
+            android:layout_toLeftOf="@+id/buttonBkSpc"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.04"
+            android:visibility="gone" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
